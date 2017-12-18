@@ -1,0 +1,536 @@
+azulObscuro = #0B2347
+gris = #373435
+amarillo = #FFCC00
+rojo = #F70F0F
+verde = #99CC33
+azul = #1C4A78
+
+ngxs = "(max-width: 600px)"
+ngsm = "(min-width: 601px) and (max-width: 960px)"
+ngmd = "(min-width: 961px) and (max-width: 1280px)"
+lg = "(min-width: 1281px) and (max-width: 1920px)"
+xl = "(min-width: 1921px)"
+
+mobile = "(max-width: 600px)"
+compu = "(min-width: 960px)"
+
+transition(duracion, delay)
+    -webkit-transition all duracion cubic-bezier(0.445, 0.050, 0.550, 0.950)
+    transition all duracion cubic-bezier(0.445, 0.050, 0.550, 0.950)
+    -webkit-transition-delay delay ease-in-out
+    transition-delay delay ease-in-out
+
+animation(animation, duration = 1s)
+    -webkit-animation animation duration cubic-bezier(0.445, 0.050, 0.550, 0.950)
+    animation animation duration cubic-bezier(0.445, 0.050, 0.550, 0.950)
+    -webkit-transition all duration ease-in-out
+    -moz-transition all duration ease-in-out
+    -o-transition all duration ease-in-out
+    transition all duration ease-in-out
+
+.ng-hide-add.ng-hide-add-active
+	animation(fadeOut, 500ms)
+
+.ng-hide-remove.ng-hide-remove-active
+	animation(fadeIn, 500ms)
+
+.angular-google-map-container
+	height 100%
+
+.md-chips .md-chip-input-container
+    input
+        display: none
+
+html, body
+	background-color inherit
+
+md-dialog
+	width 60vw
+	@media ngxs
+		width 100%
+		height 100%
+
+.background-blanco
+	background-color white
+
+.background-negro
+	background-color black
+
+.background-azul
+	background-color azul
+.background-rojo
+	background-color rojo
+.background-amarillo
+	background-color amarillo
+.background-verde
+	background-color verde
+
+.panel
+	pointer-events auto !important
+
+md-grid-list
+	margin-top 30px
+	md-grid-tile
+		background-position center
+		background-size cover
+header
+	height inherit
+	@media ngxs
+		height 70px
+	.header-content
+		width 100%
+		height 100px
+		background-color azulObscuro
+		.logo-container
+			img
+				height 70px
+		.slogan-container
+			img
+				height 30px
+		.md-button
+			md-icon
+				color white
+	.subheader
+		height 48px
+		width 100%
+		background-color gris
+		.md-button
+			color white !important
+
+.galeria
+	md-grid-list
+		margin-top 30px
+		md-grid-tile
+			background-size cover
+			background-position center center
+
+.promociones, .ubicaciones
+	img
+		width 100%
+
+.productos
+	h1
+		text-align center
+	md-grid-list
+		md-grid-tile
+			cursor pointer
+			.img-container
+				img
+					height 100px
+					margin-left 50px
+
+
+.catalogos
+	md-grid-list
+		md-grid-tile
+			background-position center
+			background-size cover
+
+			img
+				width 100%
+
+.home
+	// .slider-container
+	// 	img.back
+	// 		width 100%
+	// 		height auto
+	// 	.slider
+	// 		.slide
+	// 			position absolute
+	// 			width 100%
+	// 			height auto
+	// 		.botones
+	// 			position absolute
+	.slider-container
+        .loading
+            height 400px
+            display flex
+            md-progress-circular
+                margin auto
+		.slider
+			.slide
+				position relative
+				display block
+				width 100%
+				height auto
+				img
+					position relative
+					width 100%
+					height auto
+			.botones
+				position absolute
+	md-grid-list
+		md-grid-tile
+			background-position center
+			background-size cover
+			cursor pointer
+		.productos
+			background-color amarillo
+		.catalogos
+			background-color rojo
+		.nosotros
+			background-color azulObscuro
+		.ubicaciones
+			background-color rojo
+		.galeria
+			background-color gris
+		.promociones
+			background-color rojo
+			img
+				height 180px
+		.aquaspa
+			background-color azul
+		.title
+			height 80px
+			img
+				height 80px
+
+.filtro
+    .titulo
+    	height 100px
+    	margin 20px 0
+    	h1
+            text-align center
+            font-size 36px
+            color white
+    .barra
+        .md-button
+            margin 0px
+            padding 0px
+            border-radius 0px
+            background-color azulObscuro
+            md-icon
+                color white
+            &.cart
+                width 270px
+                display flex
+                .items
+                    height 40px
+                    display flex
+                    background-color rojo
+                    p
+                        font-size 15px
+                        margin auto 15px
+                        color white
+
+        // md-input-container
+        //     margin 0px
+        //     padding 0px
+        //     md-select
+        //         height 40px
+
+        .text
+            background-color azulObscuro
+            display flex
+            height 40px
+            width 100%
+            p
+                color white
+                margin auto 5px
+                font-weight 800
+
+	.filtro-content
+		.md-subheader
+			background-color azulObscuro
+			color white
+		.md-button
+			width 100%
+			padding 0px
+			margin 0px
+			border-radius 0px
+		.cotizador
+			md-list
+				margin 0px
+				padding 0px
+				md-list-item
+					padding-left 16px
+					padding-right 0px
+					font-size 11px
+					.md-button
+						min-width 36px
+		md-grid-list
+			md-grid-tile
+				md-card
+                    @media mobile
+                        width 100%
+                    .search
+                        position absolute
+                        @media compu
+                            height 200px !important
+                            width 200px
+                        @media mobile
+                            height 100px
+                            width 100px
+                        .md-button
+                            @media compu
+                                height 200px !important
+                                width 200px
+                            @media mobile
+                                height 100px
+
+                            md-icon
+                                margin auto
+                                transform scale(3)
+					imagenproducto
+                        @media compu
+                            height 200px !important
+                            width 200px
+                        @media mobile
+                            height 100px
+                            width 100px
+                        display flex
+
+                        .md-card-image
+                            margin auto
+                            img
+                                @media compu
+                                    height 200px
+                                    width 200px
+                                @media mobile
+                                    height 100px
+                                    width 100px
+						md-progress-circular
+                            margin auto
+					md-card-title
+						padding 0px !important
+						height 73px
+                        @media mobile
+                            height 100px
+						display flex
+						h4
+						margin auto
+				&.conHover
+					transition(500ms, 0)
+					transform scale(1.1)
+					md-card-title
+						.md-button
+                            @media mobile
+                                height 100px
+                            @media compu
+                                height 73px
+							background-color azulObscuro
+							color white
+.paginacion
+	.active
+		background-color azulObscuro
+		color white !important
+	md-icon
+		color white !important
+
+md-dialog
+    @media mobile
+        max-height inherit
+        max-width inherit
+    md-toolbar
+        background-color azulObscuro !important
+        img
+            height 44px
+            margin 10px
+    .content
+        padding 5px
+        .imagen-container
+            display flex
+            imagenproducto
+                margin auto
+    md-list
+        md-list-item
+            cursor pointer
+            transition(500ms, 0)
+            h4
+                color azul
+    .opciones
+        .md-button
+            margin 0px
+            padding 0px
+            border-radius 0px
+            &.ok
+                border 1px solid azul
+                md-icon
+                    color azul
+            // &.cancelar
+            //     background-color rgb(244, 67, 54)
+
+.listadecompra
+    md-toolbar
+        background-color azulObscuro
+        color white
+    .opciones
+        .md-button
+            margin 0px
+            padding 0px
+            border-radius 0px
+            &.ok
+                background-color rgb(76, 175, 80)
+            &.cancelar
+                background-color rgb(244, 67, 54)
+            &.seguir
+                background-color rgb(249, 190, 6)
+footer
+	height 160px
+	background-color gris
+	img
+		height 80px
+
+
+
+.slick-slide, .slick-slide::before, .caption
+    -webkit-backface-visibility hidden
+    backface-visibility hidden
+
+.slick-slide::before
+    content ''
+    position absolute
+    top 0
+    left 0
+    width 100%
+    height 100%
+
+.main-slider
+    position relative
+    width 100%
+    height 38vw
+    min-height 8vw
+    margin-bottom: 50px
+    opacity: 0
+    visibility hidden
+    -webkit-transition all 1.2s ease
+    transition: all 1.2s ease
+
+.main-slider.slick-initialized
+    opacity 1
+    visibility visible
+
+.slick-slide
+  position: relative
+  height: 38vw
+
+.slick-slide::before
+    background-color #000
+    opacity .3
+    z-index 1
+
+.slick-slide video
+    display block
+    position absolute
+    top 50%
+    left 50%
+    min-width 100%
+    min-height 100%
+    width auto
+    height auto
+    -webkit-transform translate(-50%, -50%)
+    transform translate(-50%, -50%)
+
+.slick-slide iframe
+    position relative
+    pointer-events none
+
+
+.slick-slide figure
+    margin 0px !important
+    position relative
+    height 100%
+
+.slick-slide
+    .slide-image
+        opacity 0
+        height 100%
+        background-size cover
+        background-position center
+        -webkit-transition all 0.8s ease
+        transition all 0.8s ease
+
+.slick-slide
+    .slide-image
+        &.show
+            opacity 1
+    .image-entity
+        width 100%
+        opacity 0
+        visibility hidden
+    .loading
+        position absolute
+        top 44%
+        left 0
+        width 100%
+    .slide-media
+        -webkit-animation slideOut 0.4s cubic-bezier(0.4, 0.29, 0.01, 1)
+        animation slideOut 0.4s cubic-bezier(0.4, 0.29, 0.01, 1)
+    &.slick-active
+        z-index 1
+        .slide-media
+            -webkit-animation slideIn 2.4s cubic-bezier(0.4, 0.29, 0.01, 1)
+            animation slideIn 2.4s cubic-bezier(0.4, 0.29, 0.01, 1)
+        .caption
+            opacity 1
+            -webkit-transform translateY(0)
+            transform translateY(0)
+            -webkit-transition all 0.7s cubic-bezier(0.32, 0.34, 0, 1.62) 0.6s
+            transition all 0.7s cubic-bezier(0.32, 0.34, 0, 1.62) 0.6s
+
+.caption
+    position absolute
+    top 44%
+    left 5%
+    text-align center
+    padding 20px
+    border 3px solid
+    color #fff
+    margin 0
+    font-size 40px
+    font-weight bold
+    letter-spacing .02em
+    opacity 0
+    z-index 1
+    -webkit-transition all 0.3s ease
+    transition all 0.3s ease
+    -webkit-transform translateY(100px)
+    transform translateY(100px)
+
+.slick-dots
+    text-align center
+    padding-top 15px
+    bottom inherit
+    li
+        display inline-block
+        vertical-align top
+        margin 0 8px
+        button
+            width 16px
+            height 16px
+            border none
+            cursor pointer
+            border-radius 50%
+            border 2px solid #fff
+            -webkit-box-shadow 0 0 0 0 transparent
+            box-shadow 0 0 0 0 transparent
+            vertical-align middle
+            color #fff
+            background-color #fff
+            -webkit-transition all 0.3s ease
+            transition all 0.3s ease
+            opacity .4
+            &:focus
+                outline none
+            &:hover
+                opacity 1
+            &:before
+                content ""
+        &.slick-active
+            button
+                border-color #2d3042
+                -webkit-box-shadow 0 0 0 2px #fff
+                box-shadow 0 0 0 2px #fff
+                opacity 1
+
+.container
+    background-color #f2f2f2
+    color #444
+    line-height 1.6
+    padding 40px 0
+    .content
+        width 90%
+        max-width 980px
+        margin 0 auto
+    p
+        margin-bottom 40px

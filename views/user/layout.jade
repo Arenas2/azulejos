@@ -1,0 +1,29 @@
+extends ../index
+
+block moreHead
+	script(type="text/javascript" src="js/user/user.states.js")
+	script(type="text/javascript" src="js/user/user.controller.js")
+
+block content
+
+	.user(ng-controller="userCtrl as userctrl" ng-init="obtenerUsuario();")
+		md-toolbar(ng-init="sectionsMenu('user')")
+			.md-toolbar-tools(layout="row" layout-align="space-around center")
+				md-button(ng-click="toggleLeft()")
+					md-icon menu
+				span(flex)
+				p Bienvenido Usuario
+				div(flex layout="row" layout-align="end center")
+					md-button(href="/")
+						md-icon.material-icons exit_to_app
+		div(layout="row")
+			md-sidenav.md-sidenav-left(md-component-id="left" md-disable-backdrop md-whiteframe="4")
+				md-toolbar
+					.md-toolbar-tools
+						md-button(ng-click="toggleLeft()") cerrar
+				md-list
+					md-list-item(ui-sref="{{seccion.state}}" ng-click="toggleLeft()" ng-repeat="seccion in secciones")
+						md-icon {{seccion.icon}}
+						.md-list-item-text
+							h4 {{seccion.nombre}}
+			main(ui-view="main" class="page" flex)

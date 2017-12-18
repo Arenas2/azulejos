@@ -1,0 +1,29 @@
+md-card
+    div(layout="row" layout-align="end center")
+        md-button(ng-click="editar = !editar" md-colors="editar ? {background: 'red'} : {background : 'green'}")
+            md-icon clear
+    md-card-content
+        form(ng-submit="actualizar(usuario)" layout="column")
+            md-input-container(flex)
+                label Nombre
+                input(ng-disabled="!editar" ng-model="usuario.nombre")
+            div(layout="row")
+                md-input-container(flex)
+                    label Correo
+                    input(ng-disabled="!editar" ng-model="usuario.calle")
+                md-input-container(flex)
+                    label Contraseña
+                    input(ng-disabled="!editar" ng-model="usuario.numero")
+            md-button(md-colors="{background : 'green'}" ng-show="editar" type="submit")
+                md-icon done
+            
+md-card
+    md-subheader Sucursales relacionadas
+    div(layout="row" layout-align="end center")
+        md-button(ng-click="agregarSucursal()")
+            md-icon add
+    md-list
+        md-list-item(ng-repeat="sucursal in usuario.Sucursal")
+            .md-list-item-text
+                h4 {{sucursal.nombre}}
+    

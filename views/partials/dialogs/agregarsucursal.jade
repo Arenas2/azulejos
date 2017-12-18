@@ -1,0 +1,11 @@
+md-dialog
+	md-toolbar
+		.md-toolbar-tools
+			h4 Agregar una sucursal
+	form(layout="row" ng-submit="submit(x)")
+		md-input-container(flex)
+			label Sucursal
+			md-select(ng-model="x")
+				md-option(ng-repeat="sucursal in sucursales" ng-value="sucursal") {{sucursal.nombre}}
+		md-button(type="submit")
+			md-icon add

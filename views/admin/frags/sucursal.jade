@@ -1,0 +1,38 @@
+md-card
+	.md-padding(layout="row" layout-align="end center")
+		md-button(ng-click="editar = !editar" md-colors="editar ? {background : 'red'} : {background : 'green'}")
+			md-icon edit
+	md-card-content
+		form(layout="column" ng-click="actualizar(sucursal)")
+			md-input-container(flex)
+				label Nombre
+				input(ng-disabled="!editar" ng-model="sucursal.nombre")
+			div(layout="row")
+				md-input-container(flex)
+					label Calle
+					input(ng-disabled="!editar" ng-model="sucursal.calle")
+				md-input-container(flex)
+					label Numero
+					input(ng-disabled="!editar" ng-model="sucursal.numero")
+				md-input-container(flex)
+					label Codigo postal
+					input(ng-disabled="!editar" ng-model="sucursal.codigopostal")
+			div(layout="row")
+				md-input-container(flex)
+					label Colonia
+					input(ng-disabled="!editar" ng-model="sucursal.colonia")
+				md-input-container(flex)
+					label Estado
+					input(ng-disabled="!editar" ng-model="sucursal.estado")
+			md-button(type="submit" md-colors="{background : 'green'}" ng-show="editar")
+				md-icon add
+	md-list
+		div(layout="row" layout-align="end center")
+			md-button(ng-click="agregarUsuario()" md-colors="{background : 'green'}")
+				md-icon add
+		md-list-item.md-2-line(ng-repeat="usuario in sucursal.Usuario")
+			.md-list-item-text
+				h4 {{usuario.nombre}}
+				p {{usuario.correo}}
+			
+		

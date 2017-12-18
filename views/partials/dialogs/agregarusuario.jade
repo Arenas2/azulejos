@@ -1,0 +1,11 @@
+md-dialog
+	md-toolbar
+		.md-toolbar-tools
+			h4 Agregar un usuario
+	form(layout="row" ng-submit="submit(user)")
+		md-input-container(flex)
+			label Usuarios
+			md-select(ng-model="user")
+				md-option(ng-repeat="usuario in usuarios" ng-value="usuario") {{usuario.nombre}}
+		md-button(type="submit")
+			md-icon add

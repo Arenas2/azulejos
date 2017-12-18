@@ -1,0 +1,33 @@
+md-card
+    md-subheader
+        | Ubicaciones
+        md-button(ng-click="ventana()" md-colors="{background : 'green' }")
+            md-icon add
+    md-card-content
+        md-table-container
+            table(md-table md-row-select multiple)
+                thead(md-head)
+                    tr(md-row)
+                        th(md-column md-numeric) Nombre
+                        th(md-column md-numeric) Calle
+                        th(md-column md-numeric) Numero
+                        th(md-column md-numeric) Colonia
+                        th(md-column md-numeric) Estado
+                        th(md-column md-numeric) Codigo postal
+                        th(md-column md-numeric) Latitud
+                        th(md-column md-numeric) Longitude
+
+                tbody(md-body)
+                    tr(md-row md-select="dato" md-select-id="name" md-auto-select ng-repeat="sucursal in sucursales")
+                        td(md-cell) {{sucursal.nombre}}
+                        td(md-cell) {{sucursal.calle}}
+                        td(md-cell) {{sucursal.numero}}
+                        td(md-cell) {{sucursal.colonia}}
+                        td(md-cell) {{sucursal.estado}}
+                        td(md-cell) {{sucursal.codigopostal}}
+                        td(md-cell) {{sucursal.latitude}}
+                        td(md-cell) {{sucursal.longitude}}    
+                        td(md-cell)
+                            md-button(ng-click="irSucursal(sucursal)")
+                                md-icon edit
+        md-table-pagination(md-page-select)

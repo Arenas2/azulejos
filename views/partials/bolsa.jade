@@ -1,0 +1,16 @@
+md-dialog
+    md-toolbar
+        .md-toolbar-tools
+            h4 Bolsa de trabajo
+            span(flex)
+            md-button(ng-click="close()")
+                md-icon close
+            
+    md-card-content
+        md-list
+            md-list-item.md-3-line(ng-repeat="item in productos")
+                img.md-avatar(src="{{item.producto.imagene.imagen}}")
+                .md-list-item-text
+                    strong {{item.producto.nombre}}
+                    p {{item.producto.marca.nombre}}
+                    p {{item.producto.categorium.nombre}}

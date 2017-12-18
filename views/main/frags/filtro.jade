@@ -1,0 +1,58 @@
+.filtro
+	md-card.barra(layout="row")
+		md-button(style="color: white" ng-click="mostrarfiltro($event)")
+			md-icon tune
+			span(hide-xs) Filtros
+		md-autocomplete(flex="20"
+			md-selected-item="ctrl.selectedCategoria" 
+			md-search-text-change="ctrl.BuscarCategoriaChange(ctrl.searchTextInstitucion)" 
+			md-search-text="ctrl.searchTextCategoria" 
+			md-selected-item-change="ctrl.CategoriaSeleccionadoChange(item)" 
+			md-items="item in categorias"
+			md-item-text="item.nombre" 
+			md-min-length="0" 
+			placeholder="Categorias" 
+			md-menu-class="autocomplete-custom-template")
+			md-item-template
+				span {{item.nombre}}
+		md-autocomplete(flex
+			md-selected-item="ctrl.selectedInstitucion" 
+			md-search-text-change="ctrl.BuscarNombreChange(ctrl.searchTextInstitucion)" 
+			md-search-text="ctrl.searchTextInstitucion" 
+			md-selected-item-change="ctrl.nombreSeleccionadoChange(item)" 
+			md-items="item in nombres" 
+			md-item-text="item.nombre" 
+			md-min-length="0" 
+			placeholder="Nombre de los productos" 
+			md-menu-class="autocomplete-custom-template")
+			md-item-template
+				span {{item.nombre}}
+		
+		md-button.cart(ng-click="verBolsa()")
+			.text
+				md-icon shopping_cart
+				p(hide-xs) Cotiza tus productos
+			.items
+				p {{cotizacion.bolsa.length}}
+	.filtrosaplicacos
+		//- p {{paging}} {{total}}
+		md-chips(md-chips ng-model="filtrosaplicados" ng-disabled readonly="true" md-removable="true" md-on-remove="eliminarFiltro($chip, $index)" md-max-chips="5")
+			md-chip-template
+				strong {{$chip.atributo}}
+				em ({{$chip.opcion}})
+	.filtro-content(layout="row" layout-xs="column" layout-sm="column")
+		.contenido(flex flex-xs="100" flex-sm="100" layout="column")
+			md-progress-circular(md-mode="indeterminate" style="margin:auto" ng-if="loading")
+			md-grid-list(md-cols="6" md-cols-xs="1" md-cols-sm="2" md-cols-md="5" md-cols-lg="6" md-cols-xl="8" md-row-height="300px" md-row-height-xs="110px" md-row-height-sm="222px" ng-if="!loading")
+				md-grid-tile(md-colspan="1" md-col md-rowspan="1" ng-repeat="producto in productos" ng-init="hover = false"  ng-mouseover="hover = true" ng-mouseleave="hover = false"  ng-class="hover ? 'conHover' : 'sinHover'")
+					md-card(layout="column" layout-xs="row" layout-sm="row") 
+						.search(ng-show="hover")
+							md-button(ng-click="verProducto(producto)")
+								md-icon search
+						imagenproducto.foto(id="{{producto.IdImagen}}")
+						md-card-title
+							h4(ng-if="!hover") {{producto.nombre}}
+							md-button(ng-if="hover" ng-click="agregar(producto)" style="background-color: #0B2347; color: white")
+								h4 Agregar a lista
+			md-card
+				cl-paging(cl-pages="paging.total" cl-steps="6" cl-page-changed="paging.onPageChanged()" cl-align="start start" cl-current-page="paging.current")

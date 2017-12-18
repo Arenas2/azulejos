@@ -1,0 +1,69 @@
+.producto
+	md-card
+		md-toolbar
+			.md-toolbar-tools
+				h1 Información general
+				span(flex)
+				md-button(md-colors="{background: 'red'}" ng-click="cerrarForm()")
+					md-icon clear
+		form(ng-submit="submit(producto)" )
+			.form-content(layout="row")
+				.contenido(layout="column" flex="50")
+					div(layout="row")
+						md-input-container(flex)
+							label Nombre
+							input(ng-model="producto.nombre" required)
+						md-input-container(flex)
+							label Selecciona una categoria
+							md-select(ng-model="producto.IdCategoria")
+								md-option(ng-value="categoria.id" ng-repeat="categoria in categorias") {{categoria.nombre}}
+					div(layout="row")
+						md-input-container(flex)
+							label Selecciona una marca
+							md-select(ng-model="producto.IdMarca")
+								md-option(ng-value="marca.id" ng-repeat="marca in marcas") {{marca.nombre}}
+						md-input-container(flex)
+							label Selecciona un color
+							md-select(ng-model="producto.IdColor")
+								md-option(ng-value="color.id" ng-repeat="color in colores") {{color.nombre}}
+				.image-container(flex="50" ng-init="Dropify()")
+						.dropify-container(ng-init="Dropify()" flex ng-hide="inputImage")
+							input.dropify(type="file" data-default-file="Imagen del producto" ng-model="producto.imagen" base-sixty-four-input maxsize="5120" data-max-file-size="1000K" accept="image/*" style="padding:0px;")
+						.croppie-container(flex ng-show="inputImage")
+							ng-croppie(src="inputImage"
+								ng-model='producto.imagen'
+								update='onUpdate'
+								boundry="{ w: 300, h: 300 }"
+								viewport="{ w: 200, h: 200 }"
+								mousezoom="true" 
+								zoom="true" 
+								orientation="90"
+								type="square")     
+			md-button.large(type="submit" md-colors="{background: 'green'}" flex)
+				md-icon save
+
+	md-card.atributos
+		md-toolbar
+			.md-toolbar-tools
+				h4 Atributos
+				span(flex)
+				md-button(ng-click="focusInfo()")
+					md-icon add
+		form(ng-submit="submitInfo(info)" layout="row" ng-show="info")
+			md-input-container(flex)
+				md-select(ng-model="info.IdAtributo")
+					label Selecciona un atributo
+					md-option(ng-value="atributo.id" ng-repeat="atributo in atributosdisponibles") {{atributo.nombre}}
+			md-input-container(flex)
+				label contenido
+				input(ng-model="info.contenido")
+			md-button(type="submit" md-colors="{background: 'green'}")
+				md-icon done
+			md-button(md-colors="{background: 'red'}")
+				md-icon clear
+		md-list
+			md-list-item(ng-repeat="atributo in atributos" ng-click="focusInfo(atributo)")
+				.md-list-item-text
+					strong {{atributo.atributo.nombre}}
+					|  {{atributo.contenido}}
+				

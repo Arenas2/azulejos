@@ -1,0 +1,29 @@
+.ubicaciones
+    md-grid-list(md-cols="10" md-row-height="225" md-gutter="2em")
+        md-grid-tile(md-colspan="10" md-rowspan="2" md-rowspan-xs="1" md-rowspan-sm="1" style="background-image:url(img/ubicaciones/header.jpg)")
+        //- md-grid-tile(md-colspan="10" md-rowspan="2" md-rowspan-xs="1" md-rowspan-sm="1" style="background-image:url(img/ubicaciones/mapa.png)")
+        //- 
+
+    div(layout="row" layout-xs="column")
+        div(flex flex-order-xs="2")
+            md-card
+                md-list
+                    md-list-item.md-3-line(ng-repeat="sucursal in sucursales")
+                        md-icon(style="margin: auto 20px") location_on
+                        .md-list-item-text
+                            h4 {{sucursal.estado}}
+                            p {{sucursal.calle}} # {{sucursal.numero}}, {{sucursal.colonia}}
+                            p CP {{sucursal.codigopostal}}, 
+                        md-divider
+
+
+        ui-gmap-google-map(center='map.center' zoom='map.zoom' options="options" flex flex-order-xs="1")
+            ui-gmap-marker(coords="marker" idkey="$index" ng-repeat="marker in markers")
+
+
+
+    //- div(layout="row" layout-xs="column" layout-sm="column")
+    //-     div(flex="50" flex-xs="100" flex-sm="100")
+    //-         img(src="img/ubicaciones/Direcciones_Norte2.png")
+    //-     div(flex="50" flex-xs="100" flex-sm="100")
+    //-         img(src="img/ubicaciones/Direcciones.png")

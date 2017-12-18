@@ -1,0 +1,48 @@
+md-dialog.nuevasucursal
+    form(ng-submit="submit(location)")
+        div(style="width:100%" layout="row" layout-align="space-between center")
+            h4(style="margin: 0 20px") Nueva sucursal
+            md-button(ng-click="close()")
+                md-icon clear
+        .md-padding(layout="column")    
+            place-autocomplete(ng-model="location")
+            div(layout="row")
+                md-list(flex)
+                    md-list-item
+                        md-input-container
+                            label Nombre
+                            input(ng-model="location.nombre")
+                    md-list-item
+                        md-input-container
+                            label Latitude
+                            input(ng-model="location.latitude")
+                    md-list-item
+                        md-input-container
+                            label Longitude
+                            input(ng-model="location.longitude")
+                    md-list-item
+                        md-input-container
+                            label Numero
+                            input(ng-model="location.numero")
+                    md-list-item
+                        md-input-container
+                            label Calle
+                            input(ng-model="location.calle")        
+                    md-list-item
+                        md-input-container
+                            label Colonia
+                            input(ng-model="location.colonia")
+                    md-list-item
+                        md-input-container
+                            label Estado
+                            input(ng-model="location.estado")
+                    md-list-item
+                        md-input-container
+                            label Codigo postal
+                            input(ng-model="location.codigopostal")
+                div(flex)
+                    ui-gmap-google-map(center='centro' zoom='13')
+                        ui-gmap-marker(coords="centro" idkey="1")
+        md-button(type="submit" style="background-color: 'rgb(76, 175, 80)'; color: white")
+            md-icon add
+                

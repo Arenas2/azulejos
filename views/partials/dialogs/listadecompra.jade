@@ -1,0 +1,15 @@
+md-dialog
+    div(style="width:100%" layout="row" layout-align="end center")
+        md-button(ng-click="close()")
+            md-icon clear
+    .md-padding
+        md-list
+            p Estos son los productos que haz seleccionado
+            md-list-item(ng-repeat="productointeresado in cotizacion.bolsa" ng-init="hover = false"  ng-mouseover="hover = true" ng-mouseleave="hover = false")
+                img.md-avatar(src="{{productointeresado.imagene.imagen}}" ng-if="!hover")
+                md-button(ng-click="eliminar($index)" ng-if="hover")
+                    md-icon clear
+                .md-list-item-text
+                    p {{productointeresado.nombre}}
+        .opciones(layout="row")
+            md-button.ok(ng-click="enviar()" flex) Enviar

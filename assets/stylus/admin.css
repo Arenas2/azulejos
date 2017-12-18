@@ -1,0 +1,44 @@
+md-toolbar {
+  background-color: #0b2347 !important;
+}
+md-sidenav md-icon {
+  margin: 20px;
+  color: #0b2347 !important;
+}
+.producto form {
+  margin: 0px;
+}
+.producto form .md-button {
+  margin: 0px;
+  border-radius: 0px;
+}
+.producto form .md-button.large {
+  width: 100%;
+}
+.producto form .image-container .dropify-container .dropify-wrapper {
+  padding: 0px;
+  margin: 0px;
+  border: 0px;
+}
+.producto form .image-container .croppie-container {
+  display: flex;
+  height: inherit !important;
+}
+.producto form .image-container .croppie-container ng-croppie {
+  height: inherit !important;
+  margin: 0px;
+  display: inline-block;
+}
+.angular-google-map-container {
+  height: 500px;
+}
+md-icon.pink {
+  color: #e91e63;
+}
+md-icon.green {
+  color: #4caf50;
+}
+md-dialog.nuevasucursal md-list-item md-input-container {
+  margin: 0px;
+  width: 100%;
+}

@@ -1,0 +1,29 @@
+md-dialog
+    div(style="width:100%" layout="row" layout-align="end center")
+        md-button(ng-click="close()")
+            md-icon clear
+    .content(layout="row")
+        div(flex)    
+            h2(style="text-align: center") {{producto.nombre}}
+            .imagen-container
+                imagenproducto.foto(id="{{producto.IdImagen}}" ng-if="producto")
+        md-list(flex)
+            md-list-item
+                .md-list-item-text
+                    h4 Categoria
+                .md-secondary
+                    p  {{producto.categorium.nombre}}
+            md-list-item
+                .md-list-item-text
+                    h4 Marca
+                .md-secondary
+                    p  {{producto.marca.nombre}}
+            md-list-item.md-long-text(ng-repeat="info in producto.infos")
+                .md-list-item-text
+                    h4 {{info.atributo.nombre}}
+                .md-secondary
+                    p  {{info.contenido}}
+            .opciones(layout="row" layout-align="end center")
+                md-button.ok(ng-click="agregar(producto)" flex)
+                    md-icon add_shopping_cart
+                    |     Agregar producto a la lista

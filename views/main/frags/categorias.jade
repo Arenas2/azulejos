@@ -1,0 +1,5 @@
+.productos
+    md-grid-list(md-cols="1" md-row-height="75px")
+        md-grid-tile(style="background-color: {{categoria.color}}" ng-repeat="categoria in categorias" md-colspan="1" md-rowspan="2" ng-click="irA(categoria)")
+            .img-container
+                img(src="{{categoria.imagen}}")

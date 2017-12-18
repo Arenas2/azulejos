@@ -1,0 +1,7 @@
+.catalogos(layout="row" layout-align="center center")
+    div(flex="70" flex-md="80" flex-sm="100" flex-xs="100")
+        md-grid-list(md-cols="12" md-row-height="200" md-gutter="2em")
+            md-grid-tile.background-rojo(md-colspan="12" md-rowspan="2" style="overflow: hidden")
+                img(src="img/catalogos/Header_Catalogos.png")
+            md-grid-tile(md-colspan="2" md-rowspan="1" ng-repeat="marca in marcas" ui-sref="catalogo({id : marca.id})" ng-if="marca.catalogos.length > 0" style="background-color : white; overflow: hidden")
+                img(src="img/catalogos/logos/{{marca.nombre}}.png")

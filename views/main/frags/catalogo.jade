@@ -1,0 +1,5 @@
+.catalogo(layout="row" layout-align="center center")
+    div(flex="70" flex-md="80" flex-sm="100" flex-xs="100")
+        md-grid-list(md-cols="12" md-row-height="150" md-gutter="2em")
+            md-grid-tile(md-colspan="2" md-rowspan="1" style="background-color : white; overflow: hidden" ng-repeat="catalogo in marca.catalogos" ng-click="cambio(catalogo.archivo)")
+                h2 {{catalogo.nombre}}

@@ -1,0 +1,37 @@
+div(layout="row" layout-align="center center")
+    div(flex="80")
+        .productos
+            md-card-content(layout="row")
+                md-autocomplete(
+                flex
+                md-selected-item="ctrl.selectedProducto"
+                md-search-text-change="ctrl.BuscarProductoChange(ctrl.searchTextProducto)"
+                md-search-text="ctrl.searchTextProducto"
+                md-selected-item-change="ctrl.ProductoSeleccionadoChange(item)"
+                md-items="item in productos"
+                md-item-text="item.nombre"
+                md-min-length="0"
+                placeholder="Nombre del Producto"
+                md-menu-class="autocomplete-custom-template")
+                    md-item-template
+                        span {{item.nombre}}
+                md-button(md-colors="{background: 'green'}" ng-click="ProductoDialog()")
+                    md-icon add
+            
+        md-card
+            md-list
+                md-list-item.md-2-line(ng-repeat="producto in productos | filter: ctrl.searchTextProducto")    
+                    img.md-avatar(ng-src="{{producto.imagen}}")
+                    .md-list-item-text
+                        h2 {{producto.nombre}}
+                    md-fab-toolbar(md-open="false" count="0"  md-direction="left" flex)
+                        md-fab-trigger
+                            md-button
+                                md-icon more_vert
+                        md-toolbar
+                            md-fab-actions(layout="row")
+                                md-button(md-colors="{background: 'green'}" ng-click="seleccionar(producto)" ui-sref="infoProducto({id:producto.id})")
+                                    md-icon edit
+                                md-button(md-colors="{background: 'red'}" ng-click="eliminarProducto(producto,$index)")
+                                    md-icon clear
+                    md-divider

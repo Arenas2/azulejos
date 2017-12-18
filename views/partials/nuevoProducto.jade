@@ -1,0 +1,21 @@
+md-dialog.enviarcotizacion(style="width:60vw;")
+    md-toolbar
+        .md-toolbar-tools
+            h4 Nuevo Producto
+    form(ng-submit="submit(producto)" layout="column")
+        .form-content(layout="row" layout-align="center center" flex)
+                md-input-container(flex)
+                    label Nombre del Producto
+                    input(ng-model="producto.nombre" required)
+                md-input-container(flex)
+                    label Selecciona una categoria
+                    md-select(ng-model="producto.IdCategoria" required)
+                        md-option(ng-value="categoria.id" ng-repeat="categoria in categorias") {{categoria.nombre}}            
+            //- .imagen(flex ng-init="Dropify()")
+            //-     .md-padding
+            //-         input.dropify(ng-model="producto.imagen" type="file" base-sixty-four-input data-default-file="Imagen del producto" maxsize="5120" data-max-file-size="600K" accept="image/*" style="padding:0px;")
+        .options(layout="row")
+            md-button(flex type="submit")
+                md-icon add
+            md-button(flex ng-click="close()")
+                md-icon cancel

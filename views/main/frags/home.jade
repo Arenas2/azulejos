@@ -1,0 +1,58 @@
+.home(layout="row" layout-align="center center")
+	.home-container(flex="100" layout="column")
+		section.main-slider
+			.item.youtube
+				iframe.embed-player.slide-media(width="980" height="520" src="https://www.youtube.com/embed/CIsDwIkScjs?enablejsapi=1&controls=0&fs=0&iv_load_policy=3&rel=0&showinfo=0&loop=1&playlist=CIsDwIkScjs&start=0" frameborder="0" allowfullscreen)
+				//- p.caption Youtube
+			//- .item.vimeo(data-video-start="0")
+			//- 	iframe.embed-player.slide-media(src="https://player.vimeo.com/video/247433039?api=1&byline=0&portrait=0&title=0&background=1&mute=1&loop=1&autoplay=0&id=217885864" width="980" height="520" frameborder="0" webkitallowfullscreen mozallowfullscreen
+			//- 	allowfullscreen)
+				//- .caption Vimeo
+			.item.image
+				span.loading Loading ...
+				figure
+					.slide-image.slide-media(style="background-image:url({{imagenes[0].src}})")
+						img.image-entity(data-lazy="{{imagenes[0].src}}")
+					//- figcaption.caption Imagen normal
+			
+			//- .item.image(ng-repeat="imagen in imagenes")
+			//- 	figure
+			//- 		.slide-image.slide-media(style="background-image:url({{imagen.imagen}})")
+			//- 			img.image-entity(data-lazy="{{imagen.imagen}}")
+			//- 		figcaption.caption Imagen normal
+			//- .item.youtube
+			//- 	iframe.embed-player.slide-media(width="980" height="520" src="https://www.youtube.com/embed/tdwbYGe8pv8?enablejsapi=1&controls=0&fs=0&iv_load_policy=3&rel=0&showinfo=0&loop=1&playlist=tdwbYGe8pv8&start=102" frameborder="0" allowfullscreen)
+			//- 	p.caption Youtube
+			//- .item.image
+			//- 	figure
+			//- 		.slide-image.slide-media(style="background-image:url('https://drive.google.com/uc?export=view&id=0B_koKn2rKOkLSlBkWDBsWXJNazQ')")
+			//- 			img.image-entity(data-lazy="https://drive.google.com/uc?export=view&id=0B_koKn2rKOkLSlBkWDBsWXJNazQ")
+			//- 		figcaption.caption Imagen normal
+			//- .item.video
+			//- 	video.slide-video.slide-media(loop muted preload="metadata" poster="https://drive.google.com/uc?export=view&id=0B_koKn2rKOkLSXZCakVGZWhOV00")
+			//- 		source(src="https://player.vimeo.com/external/138504815.sd.mp4?s=8a71ff38f08ec81efe50d35915afd426765a7526&profile_id=112" type="video/mp4")
+			//- 	p.caption Video
+					
+	
+		md-grid-list(md-cols="10" md-row-height="250px" style="margin-top:0px")
+			md-grid-tile.productos(md-colspan="6" md-colspan-sm="10" md-colspan-xs="10" md-rowspan="1" style="background-image:url(img/Index_Conoce_Nuestros_Productos_Back.jpg)" ui-sref="productos")
+				.title
+					img(src="img/Txt_Disenamos_tu_espacio.png")
+			md-grid-tile.catalogos(md-colspan="4" md-colspan-sm="10" md-colspan-xs="10" md-rowspan="1" ui-sref="catalogos")
+				.title
+					img(src="img/Index_Descarga_Nuestros_Catalogos.jpg")
+			md-grid-tile.galeria(md-colspan="4" md-colspan-sm="10" md-colspan-xs="10" md-rowspan="1" ui-sref="productos")
+				.title
+					img(src="img/Txt_Visita_nuestra_galeria.png")
+			md-grid-tile.ubicaciones(md-colspan="4" md-colspan-sm="10" md-colspan-xs="10" md-rowspan="1" style="background-image:url(img/Back_Conoce_nuestras_tiendas2.png)" ui-sref="ubicaciones")
+
+			
+			md-grid-tile.nosotros(md-colspan="2" md-colspan-sm="10" md-colspan-xs="10" md-rowspan="1" ui-sref="nosotros")
+				.title
+					img(src="img/Txt_Porque_nos_prefieren.png")
+
+			md-grid-tile.promociones(md-colspan="7" md-colspan-sm="10" md-colspan-xs="10" md-rowspan="1" ui-sref="productos")
+				img(src="img/Txt_Grandes_Descuentos.png" style="width: inherit")
+				
+			md-grid-tile.aquaspa(md-colspan="3" md-colspan-sm="10" md-colspan-xs="10" md-rowspan="1" style="background-image:url(img/Back_Disenamos_tu_espacio_2.jpg)")
+			

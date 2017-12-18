@@ -1,0 +1,24 @@
+md-dialog
+    .md-padding(layout="column")
+        h4 Filtros
+        div(flex)
+            md-input-container(style="width : 100%")
+                label Marca
+                md-select(ng-model="peticion.where.IdMarca")
+                    md-option(ng-repeat="marca in marcas" ng-value="marca.id") {{marca.nombre}}
+
+                
+        div(flex)
+            md-input-container(style="width : 100%")
+                label Color
+                md-select(ng-model="peticion.where.IdColor")
+                    md-option(ng-repeat="color in colores" ng-value="color.id") {{color.nombre}}
+                
+        div(ng-repeat="atributo in categoria.atributos" flex)
+            md-input-container(style="width : 100%")
+                label {{atributo.nombre}}
+                md-select(ng-change="seleccionar(atributo, x)" ng-model="x")
+                    md-option(ng-repeat="opcion in atributo.opciones" ng-value="opcion") {{opcion.Producto.length}} - {{opcion.nombre}} 
+        .opciones(layout="row" layout-align="end center" flex)    
+            md-button.cancelar(ng-click="hide()") Cancelar
+            md-button.ok(ng-click="aplicar()") Aplicar filtros

@@ -1,0 +1,10 @@
+.paginacion(layout="row" layout-align="{{ clAlign || clAlignModel }}")
+	md-button(aria-label="First" ng-click="vm.gotoFirst()" style="background-color: #686868; color: white")
+		md-icon first_page
+	md-button(aria-label="Previous" ng-click="vm.gotoPrev()" ng-show="vm.index - 1 >= 0" style="background-color: #aaaaaa; color: white")
+		md-icon chevron_left
+	md-button(aria-label="Go to page {{i+1}}" ng-repeat="i in vm.stepInfo" ng-click="vm.goto(vm.index + i)" ng-show="vm.page[vm.index + i]" ng-class="{'active': vm.page[vm.index + i] == clCurrentPage}" hide-xs) {{ vm.page[vm.index + i] }}
+	md-button(aria-label="Next" ng-click="vm.gotoNext()" ng-show="vm.index + vm.clSteps < clPages" style="background-color: #aaaaaa; color: white")
+		md-icon chevron_right
+	md-button(aria-label="Last" ng-click="vm.gotoLast()" style="background-color: #686868; color: white")
+		md-icon last_page

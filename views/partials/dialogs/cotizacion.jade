@@ -1,0 +1,30 @@
+md-dialog
+    md-toolbar
+        .md-toolbar-tools
+            img(src="img/No_Foto.png")
+            h1 Enviar cotización
+    form.md-padding(layout="column" ng-submit="enviar(cotizacion)")
+        .form-content(layout="row" )
+            .info(layout="column" flex)
+                h4 Brindanos tu información para que podamos hacerte llegar tu cotización
+                md-input-container
+                    label Nombre
+                    input(ng-model="cotizacion.nombre" required)
+                div(layout="row")
+                    md-input-container(flex)
+                        label Telefono
+                        input(ng-model="cotizacion.telefono" required)
+                    md-input-container(flex)
+                        label E-mail
+                        input(ng-model="cotizacion.correo" required)
+                div(layout="row")
+                    md-input-container(flex)
+                        label Dirección
+                        input(ng-model="cotizacion.direccion" required)
+                    md-input-container(flex)
+                        label Selecciona la sucursal más cercana
+                        md-select(ng-model="cotizacion.IdSucursal")
+                            md-option(ng-repeat="sucursal in sucursales" ng-value="sucursal.id") {{sucursal.estado}}, {{sucursal.colonia}}
+        .opciones(layout="row")
+            md-button.ok(type="submit" flex)
+                md-icon send

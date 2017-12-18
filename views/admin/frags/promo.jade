@@ -1,0 +1,18 @@
+form(ng-submit="crearPromocion(promo)")
+    .image-container(ng-init="Dropify()")
+        .dropify-container(ng-init="Dropify()" flex ng-hide="inputImage")
+            input.dropify(type="file" data-default-file="Imagen del producto" ng-model="producto.imagen" base-sixty-four-input maxsize="5120" data-max-file-size="1000K" accept="image/*" style="padding:0px;")
+        .croppie-container(flex ng-show="inputImage")
+            ng-croppie(src="inputImage"
+                ng-model='promo.imagen'
+                update='onUpdate'
+                boundry="{ w: 1444, h: 524 }"
+                viewport="{ w: 1344, h: 424 }"
+                mousezoom="true" 
+                zoom="true" 
+                orientation="90"
+                type="square")
+    md-button(type="submit")
+        md-icon add
+    div(ng-repeat="promo in promos")
+        img(src="{{promo.imagen}}")
